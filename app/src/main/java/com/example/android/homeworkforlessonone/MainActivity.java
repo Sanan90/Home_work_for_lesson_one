@@ -128,14 +128,13 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout ex = findViewById(R.id.noDisplay);
 
         if (trusts == 0) {
-            finalCompareText.setText("\n" + getString(R.string.notTrust) + "\n");
+            finalCompareText.setText("\n" + getString(R.string.notTrust) + "\nУ вас " + interests + " общих интересов, из 6 возможных");
         }   else if (trusts == 1) {
-            finalCompareText.setText("\n" + getString(R.string.littleTrust) + "\n");
+            finalCompareText.setText("\n" + getString(R.string.littleTrust) + "\n У вас " + interests + " общих интересов, из 6 возможных");
         }   else {
-            finalCompareText.setText("\n" + getString(R.string.absolutlyTrust) + "\n");
+            finalCompareText.setText("\n" + getString(R.string.absolutlyTrust) + "\n У вас " + interests + " общих интересов, из 6 возможных");
         }
 
-        finalCompareText.setText("У вас " + interests + " общих интересов, из 6 возможных");
         ex.setVisibility(View.GONE);
         finalCompareText.setVisibility(View.VISIBLE);
     }
