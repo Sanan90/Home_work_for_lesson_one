@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Home work for lesson one</string>
+    <string name="top_text">Cравним, как много у вас общих интересов</string>
+    <string name="first_name">Имя первого человека</string>
+    <string name="interests">Выберите ваши увлечения</string>
+    <string name="travel">Путешествие</string>
+    <string name="cinema">Кино</string>
+    <string name="creation">Творчество</string>
+    <string name="extrim">Экстрим</string>
+    <string name="sport">Спорт</string>
+    <string name="programming">Программирование</string>
+    <string name="are_you_trust">Доверяете ли вы человеку этому человеку на 100%?</string>
+    <string name="not_ready">Не готов</string>
+    <string name="ready">Готов</string>
+    <string name="second_name">Имя второго человека</string>
+    <string name="are_you_ready">Вы готовы к сравнению?</string>
+    <string name="compare">Сравнить</string>
+    <string name="notReady">Кто то еще не готов</string>
+    <string name="forget_name">Кто то забыл ввести имя</string>
+    <string name="absolutlyTrust">Вы полностью доверяете друг другу</string>
+    <string name="notTrust">Вы совсем не доверяете друг другу</string>
+    <string name="littleTrust">Ваше доверие, может быть лучше</string>
 </resources>

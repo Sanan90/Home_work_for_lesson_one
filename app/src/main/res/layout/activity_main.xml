@@ -1,19 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/finalCompareText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:visibility="gone"/>
+
+
+
+<LinearLayout
+    android:id="@+id/noDisplay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:padding="@dimen/mainPadding"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:visibility="visible">
+
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World"
-        android:textSize="50sp" />
+        android:text="@string/top_text"
+        android:textSize="@dimen/textSize" />
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name"
+        android:ems="20"
+        android:maxLength="20"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/interests"
+        android:textSize="25sp"/>
+
+    <LinearLayout
+        android:id="@+id/experiment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <CheckBox
+            android:id="@+id/travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel"/>
+
+        <CheckBox
+            android:id="@+id/cinema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cinema"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/creation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/creation"/>
+
+        <CheckBox
+            android:id="@+id/extrim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/extrim"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/sport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sport"/>
+
+            <CheckBox
+                android:id="@+id/programming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/programming"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_trust"
+        android:textSize="@dimen/textSize"/>
+
+    <Switch
+        android:id="@+id/trust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_ready"
+        android:textSize="@dimen/textSize"/>
+
+    <ToggleButton
+        android:id="@+id/ready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:textOff="@string/not_ready"
+        android:textOn="@string/ready" />
+
+
+    <EditText
+        android:id="@+id/name2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/second_name"
+        android:ems="20"
+        android:maxLength="20"
+        android:inputType="text"
+        android:layout_marginTop="@dimen/marginTop50"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/interests"
+        android:textSize="@dimen/textSize"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <CheckBox
+                android:id="@+id/travel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/travel"/>
+
+            <CheckBox
+                android:id="@+id/cinema2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cinema"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/creation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/creation"/>
+
+            <CheckBox
+                android:id="@+id/extrim2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/extrim"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/sport2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sport"/>
+
+            <CheckBox
+                android:id="@+id/programming2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/programming"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_trust"
+        android:textSize="@dimen/textSize"/>
+
+    <Switch
+        android:id="@+id/trust2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_ready"
+        android:textSize="@dimen/textSize" />
+
+    <ToggleButton
+        android:id="@+id/ready2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:textOff="@string/not_ready"
+        android:textOn="@string/ready" />
+
+
+    <Button
+        android:id="@+id/compare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/compare"
+        android:layout_marginTop="30dp"/>
 
 
 </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
