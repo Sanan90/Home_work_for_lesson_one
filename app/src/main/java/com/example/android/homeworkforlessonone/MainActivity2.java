@@ -74,7 +74,7 @@ public class MainActivity2 extends AppCompatActivity {
             number = Integer.parseInt(numberText.getText().toString());
             height = Integer.parseInt(heightText.getText().toString());
             return true;
-        }   else {
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Введите все данные", Toast.LENGTH_SHORT);
             toast.show();
             return false;
@@ -86,7 +86,7 @@ public class MainActivity2 extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.main2linerLayout);
         TextView mainText = findViewById(R.id.final_result);
 
-        mainText.setText("Проверьте ваши данные \n\n Ваше имя " + name + "\n\n Ваш логин " + login + "\n\n Ваш пароль "+
+        mainText.setText("Проверьте ваши данные \n\n Ваше имя " + name + "\n\n Ваш логин " + login + "\n\n Ваш пароль " +
                 password + "\n\n Дата рождения " + date + "\n\n Ваш электронный адрес " +
                 email + "\n\n Ваш номер " + number + "\n\n Ваш рост " + height);
 
