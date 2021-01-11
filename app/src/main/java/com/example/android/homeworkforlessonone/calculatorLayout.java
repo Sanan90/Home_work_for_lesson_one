@@ -47,7 +47,6 @@ public class calculatorLayout extends AppCompatActivity {
         Button buttonDelete = findViewById(R.id.delete);
 
 
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,6 +270,12 @@ public class calculatorLayout extends AppCompatActivity {
             restart = 1;
             start = "2";
             lastButton = math;
+        } else if (start == "1") {
+            maths = math;
+            display((double) num);
+            restart = 1;
+            start = "2";
+            lastButton = math;
         } else {
             if (maths.equals("-")) {
                 num -= (double) Double.valueOf((String) numbersText.getText());
@@ -278,19 +283,19 @@ public class calculatorLayout extends AppCompatActivity {
                 maths = math;
                 restart = 1;
                 lastButton = math;
-            }   else if (maths.equals("+")) {
+            } else if (maths.equals("+")) {
                 num += Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 maths = math;
                 restart = 1;
                 lastButton = math;
-            }   else if (maths.equals("*")) {
+            } else if (maths.equals("*")) {
                 num *= Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 maths = math;
                 restart = 1;
                 lastButton = math;
-            }   else if (maths.equals("/")) {
+            } else if (maths.equals("/")) {
                 num /= Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 maths = math;
@@ -301,7 +306,7 @@ public class calculatorLayout extends AppCompatActivity {
     }
 
 
-    public void equal () {
+    public void equal() {
         TextView numbersText = findViewById(R.id.forNumbers);
 
         if (lastButton == "=") {
@@ -312,45 +317,44 @@ public class calculatorLayout extends AppCompatActivity {
         if (maths == null) {
             return;
 
-        }   else {
+        } else {
             if (maths == "-") {
                 num -= Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 restart = 1;
-                start = null;
+                start = "1";
 
-            }   else if ( maths == "+") {
+            } else if (maths == "+") {
                 num += Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 restart = 1;
-                start = null;
+                start = "1";
 
 
-            }   else if ( maths == "*") {
+            } else if (maths == "*") {
                 num *= Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 restart = 1;
-                start = null;
+                start = "1";
 
 
-            }   else if ( maths == "/") {
+            } else if (maths == "/") {
                 num /= Double.valueOf((String) numbersText.getText());
                 display((double) num);
                 restart = 1;
-                start = null;
+                start = "1";
 
             }
         }
     }
 
     public void ac() {
-        double num = 0;
+        num = 0;
         String number;
-        String maths = null;
-        String point = ".";
-        int restart = 0;
-        String lastButton;
-        String start = null;
+        maths = null;
+        restart = 0;
+        lastButton = null;
+        start = null;
         display((double) num);
     }
 
@@ -359,11 +363,11 @@ public class calculatorLayout extends AppCompatActivity {
         TextView numbersText = findViewById(R.id.forNumbers);
         if (numbersText.getText().length() < 1) {
             return;
-        }   else if (numbersText.getText().length() == 1) {
+        } else if (numbersText.getText().length() == 1) {
             numbersText.setText("0");
-        }   else {
+        } else {
             String newText = "";
-            for (int i = 0; i < numbersText.getText().length()-1; i++) {
+            for (int i = 0; i < numbersText.getText().length() - 1; i++) {
                 newText += String.valueOf(numbersText.getText().charAt(i));
             }
             numbersText.setText(newText);
