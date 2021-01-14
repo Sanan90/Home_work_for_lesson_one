@@ -37,5 +37,6 @@
     <string name="equally">=</string>
     <string name="times">*</string>
     <string name="c">C</string>
-    <string name="delete">del</string>
+    <string name="delete">←</string>
+    <string name="mPlus">M+</string>
 </resources>
