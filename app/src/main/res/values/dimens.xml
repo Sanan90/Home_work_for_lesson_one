@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="mainPadding">30dp</dimen>
+    <dimen name="displayTextSize">25sp</dimen>
     <dimen name="textSize">25sp</dimen>
     <dimen name="marginTop50">50dp</dimen>
     <dimen name="marginTextView">20dp</dimen>
-    <dimen name="numbresSize">30sp</dimen>
+    <dimen name="numbresSize">22sp</dimen>
     <dimen name="marginBetween">10dp</dimen>
     <dimen name="dp0">0dp</dimen>
+    <dimen name="displayHeight">180dp</dimen>
+    <dimen name="layoutPadding">15dp</dimen>
 </resources>
