@@ -25,9 +25,14 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
 
         operations = new Operations();
         initViews();
+        showDisplay();
     }
 
-
+    private void showDisplay() {
+        if (operations.getOperationDisplay()!=null) {
+            numbersText.setText(operations.getOperationDisplay());
+        }
+    }
 
     public void initViews() {
         Button button1 = findViewById(R.id.button1);
