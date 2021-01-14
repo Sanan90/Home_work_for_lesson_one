@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 class Operations implements Serializable {
 
-    private String operationDisplay;
+    private static String operationDisplay;
     private double mPlusMemory = 0;
     private double num = 0;
     private String maths = null;
