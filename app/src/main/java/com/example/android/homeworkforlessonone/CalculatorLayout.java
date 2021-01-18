@@ -1,31 +1,44 @@
 package com.example.android.homeworkforlessonone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
+public class CalculatorLayout extends AppCompatActivity implements View.OnClickListener {
 
-public class calculatorLayout extends AppCompatActivity {
-
-    double mPlusMemory = 0;
-    double num = 0;
-    String number;
-    String maths = null;
-    String point = ".";
-    int restart = 0;
-    String lastButton;
-    String start = null;
+    private String number;
+    private String point = ".";
+    private TextView numbersText;
+    private Operations operations;
+    private final static String TAG = "[lifeActivity]";
+    private final static String keyOperations = "Operations";
 
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator_layout);
 
+        operations = new Operations();
+        initViews();
+        showDisplay();
+    }
+
+
+    private void showDisplay() {
+        if (operations.getOperationDisplay()!=null) {
+            numbersText.setText(operations.getOperationDisplay());
+        }
+    }
+
+    public void initViews() {
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
@@ -45,333 +58,205 @@ public class calculatorLayout extends AppCompatActivity {
         Button buttonC = findViewById(R.id.c);
         Button buttonMplus = findViewById(R.id.mPlus);
         Button buttonDelete = findViewById(R.id.delete);
+        numbersText = findViewById(R.id.forNumbers);
+        Typeface hw = Typeface.createFromAsset(getAssets(),"ttf/lcchalk_.ttf");
+        numbersText.setTypeface(hw);
 
 
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button7.setOnClickListener(this);
+        button8.setOnClickListener(this);
+        button9.setOnClickListener(this);
+        button0.setOnClickListener(this);
+        buttonPlus.setOnClickListener(this);
+        buttonMinus.setOnClickListener(this);
+        buttonTimes.setOnClickListener(this);
+        buttonDivided.setOnClickListener(this);
+        buttonDelete.setOnClickListener(this);
+        buttonPoint.setOnClickListener(this);
+        buttonC.setOnClickListener(this);
+        buttonEqual.setOnClickListener(this);
+        buttonMplus.setOnClickListener(this);
+    }
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button1:
                 number = "1";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button2:
                 number = "2";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button3:
                 number = "3";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button4:
                 number = "4";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button5:
                 number = "5";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button6:
                 number = "6";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button7:
                 number = "7";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button8:
                 number = "8";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button9:
                 number = "9";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.button0:
                 number = "0";
-                display(number);
-            }
-        });
+                operations.display(number, numbersText.getText().toString());
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
+            case R.id.buttonPlus:
+                operations.math("+");
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                math("-");
-            }
-        });
+            case R.id.buttonMinus:
+                operations.math("-");
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
+            case R.id.buttonTimes:
+                operations.math("*");
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
-        buttonPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                math("+");
-            }
-        });
+            case R.id.buttonDivided:
+                operations.math("/");
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
+            case R.id.equally:
+                operations.equal();
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
-        buttonDivided.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                math("/");
-            }
-        });
+            case R.id.delete:
+                operations.delete();
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
+            case R.id.buttonPoint:
+                operations.point(point);
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
 
-        buttonTimes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                math("*");
-            }
-        });
+            case R.id.mPlus:
+                operations.mPlus();
+                numbersText.setText(operations.getOperationDisplay());
+                break;
 
-
-        buttonPoint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                point(point);
-            }
-        });
-
-
-        buttonEqual.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                equal();
-            }
-        });
-
-
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                delete();
-            }
-        });
-
-
-        buttonMplus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPlus();
-            }
-        });
-
-
-        buttonC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ac();
-            }
-        });
-
-    }
-
-    public void display(String a) {
-
-        TextView numbersText = findViewById(R.id.forNumbers);
-        lastButton = a;
-        if (restart != 1) {
-            if (numbersText.getText().equals("0") && a.equals("0")) {
-                return;
-            } else if (numbersText.getText().length() < 10) {
-                if (numbersText.getText().equals("0")) {
-                    numbersText.setText(a);
-                } else {
-                    numbersText.setText(numbersText.getText() + a);
-                }
-            }
-        } else {
-            numbersText.setText(a);
-            restart = 0;
-            return;
+            case R.id.c:
+                operations.ac();
+                numbersText.setText(operations.getOperationDisplay());
+                operations.setOperationDisplay(numbersText.getText().toString());
+                break;
         }
     }
 
 
-    public void display(Double a) {
-        TextView numbersText = findViewById(R.id.forNumbers);
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        String forDisplay = decimalFormat.format(a);
-        numbersText.setText(forDisplay);
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
-
-    public void point(String point) {
-        TextView numbersText = findViewById(R.id.forNumbers);
-        if (numbersText.length() > 0 && numbersText.length() < 10) {
-            for (int i = 0; i < numbersText.length(); i++) {
-                String word = String.valueOf(numbersText.getText().charAt(i));
-                if (word.equals(point)) {
-                    return;
-                }
-            }
-            numbersText.setText(numbersText.getText() + point);
-            lastButton = point;
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
-
-    public void math(String math) {
-        TextView numbersText = findViewById(R.id.forNumbers);
-
-        if (lastButton == "+" || lastButton == "-" || lastButton == "*" || lastButton == "/") {
-            maths = math;
-            return;
-        }
-
-        if (start == null) {
-            num = (double) Double.valueOf((String) numbersText.getText());
-            maths = math;
-            display((double) num);
-            restart = 1;
-            start = "2";
-            lastButton = math;
-        } else {
-            if (maths.equals("-")) {
-                num -= (double) Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                maths = math;
-                restart = 1;
-                lastButton = math;
-            }   else if (maths.equals("+")) {
-                num += Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                maths = math;
-                restart = 1;
-                lastButton = math;
-            }   else if (maths.equals("*")) {
-                num *= Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                maths = math;
-                restart = 1;
-                lastButton = math;
-            }   else if (maths.equals("/")) {
-                num /= Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                maths = math;
-                restart = 1;
-                lastButton = math;
-            }
-        }
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
-
-    public void equal () {
-        TextView numbersText = findViewById(R.id.forNumbers);
-
-        if (lastButton == "=") {
-            return;
-        }
-
-        lastButton = "=";
-        if (maths == null) {
-            return;
-
-        }   else {
-            if (maths == "-") {
-                num -= Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                restart = 1;
-                start = null;
-
-            }   else if ( maths == "+") {
-                num += Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                restart = 1;
-                start = null;
-
-
-            }   else if ( maths == "*") {
-                num *= Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                restart = 1;
-                start = null;
-
-
-            }   else if ( maths == "/") {
-                num /= Double.valueOf((String) numbersText.getText());
-                display((double) num);
-                restart = 1;
-                start = null;
-
-            }
-        }
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
-    public void ac() {
-        double num = 0;
-        String number;
-        String maths = null;
-        String point = ".";
-        int restart = 0;
-        String lastButton;
-        String start = null;
-        display((double) num);
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 
-
-    public void delete() {
-        TextView numbersText = findViewById(R.id.forNumbers);
-        if (numbersText.getText().length() < 1) {
-            return;
-        }   else if (numbersText.getText().length() == 1) {
-            numbersText.setText("0");
-        }   else {
-            String newText = "";
-            for (int i = 0; i < numbersText.getText().length()-1; i++) {
-                newText += String.valueOf(numbersText.getText().charAt(i));
-            }
-            numbersText.setText(newText);
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
-    public void mPlus() {
-
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        operations = (Operations) savedInstanceState.getSerializable(keyOperations);
+        setOperations();
     }
+
+    private void setOperations() {
+        operations.setOperationDisplay(operations.getOperationDisplay());
+        operations.setLastAtiphmeticSymbol(operations.getLastAtiphmeticSymbol());
+        operations.setLastButton(operations.getLastButton());
+        operations.setMaths(operations.getMaths());
+        operations.setmPlusMemory(operations.getmPlusMemory());
+        operations.setNum(operations.getNum());
+        operations.setNum2(operations.getNum2());
+        operations.setRestart(operations.getRestart());
+        operations.setStart(operations.getStart());
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(keyOperations, operations);
+    }
+
 
 }

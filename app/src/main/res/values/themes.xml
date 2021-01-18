@@ -13,4 +13,42 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="buttonStyls" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_width">@dimen/dp0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/numsColor</item>
+        <item name="android:textSize">@dimen/numbresSize</item>
+    </style>
+
+
+    <style name="buttonStyleLand" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="backgroundTint">@color/numsColor</item>
+        <item name="android:textSize">@dimen/numbresSize</item>
+    </style>
+
+
+    <style name="textViewStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/displayHeight</item>
+        <item name="android:background">@drawable/doska</item>
+        <item name="android:textSize">@dimen/displayTextSize</item>
+        <item name="android:padding">@dimen/textViewPadding</item>
+        <item name="android:textColor">@color/displayTextColor</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="textViewStyleLand" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/doska</item>
+        <item name="android:textSize">@dimen/displayTextSize</item>
+        <item name="android:padding">@dimen/textViewPadding</item>
+        <item name="android:textColor">@color/displayTextColor</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>
