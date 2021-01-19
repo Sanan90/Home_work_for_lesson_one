@@ -11,5 +11,5 @@
     <dimen name="displayHeight">180dp</dimen>
     <dimen name="layoutPadding">15dp</dimen>
     <dimen name="textViewPadding">30dp</dimen>
-    <dimen name="margin20dp">20dp</dimen>
+    <dimen name="checkboxTextSize">30sp</dimen>
 </resources>
