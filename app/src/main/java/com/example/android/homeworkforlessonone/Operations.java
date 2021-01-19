@@ -109,6 +109,10 @@ class Operations implements Serializable {
 
 
     public void display(String a, String b) {
+
+        if (lastButton == point) {
+            b = b + point;
+        }
         lastButton = a;
         if (restart != 1) {
             if (b.equals("0") && a.equals("0")) {
@@ -132,7 +136,7 @@ class Operations implements Serializable {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String forDisplay = decimalFormat.format(a);
         operationDisplay = forDisplay;
-        rounding();
+//        rounding(operationDisplay);
     }
 
 
@@ -291,7 +295,7 @@ class Operations implements Serializable {
                     return;
                 }
             }
-            operationDisplay = operationDisplay + point;
+//            operationDisplay = operationDisplay + point;
             lastButton = point;
         }
     }
@@ -326,8 +330,7 @@ class Operations implements Serializable {
 
 
 
-    public void rounding() {
-        double a = Double.parseDouble(operationDisplay);
-        num = a;
-    }
+//    public void rounding(String numm) {
+//        num = Double.valueOf((String)numm);
+//    }
 }
