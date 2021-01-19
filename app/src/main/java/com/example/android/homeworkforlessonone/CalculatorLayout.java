@@ -26,7 +26,6 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     private final static String keyOperations = "Operations";
 
 
-
     private static final String NameSharedPreference = "LOGIN";
 
     // Имя параметра в настройках
@@ -34,7 +33,6 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
 
     private static final int MyCoolCodeStyle = 0;
     private static final int AppThemeDarkCodeStyle = 3;
-
 
 
     @Override
@@ -52,7 +50,6 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     }
 
 
-
     private void initThemeChooser() {
         initRadioButton(findViewById(R.id.theme2),
                 MyCoolCodeStyle);
@@ -61,29 +58,29 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     }
 
 
-        private void initRadioButton(View button, final int codeStyle){
+    private void initRadioButton(View button, final int codeStyle) {
 
-            CheckBox checkBox1 = findViewById(R.id.theme1);
-            CheckBox checkBox2 = findViewById(R.id.theme2);
+        CheckBox checkBox1 = findViewById(R.id.theme1);
+        CheckBox checkBox2 = findViewById(R.id.theme2);
 
-            if (codeStyle == 3) {
-                checkBox1.setChecked(true);
-                checkBox2.setChecked(false);
-            }   else if (codeStyle == 0) {
-                checkBox2.setChecked(true);
-                checkBox1.setChecked(false);
-            }
-
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // сохраним настройки
-                    setAppTheme(codeStyle);
-                    // пересоздадим активити, чтобы тема применилась
-                    recreate();
-                }
-            });
+        if (codeStyle == 3) {
+            checkBox1.setChecked(true);
+            checkBox2.setChecked(false);
+        } else if (codeStyle == 0) {
+            checkBox2.setChecked(true);
+            checkBox1.setChecked(false);
         }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // сохраним настройки
+                setAppTheme(codeStyle);
+                // пересоздадим активити, чтобы тема применилась
+                recreate();
+            }
+        });
+    }
 
     private int getAppTheme(int codeStyle) {
 
@@ -91,7 +88,7 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     }
 
     // Чтение настроек, параметр «тема»
-    private int getCodeStyle(int codeStyle){
+    private int getCodeStyle(int codeStyle) {
         // Работаем через специальный класс сохранения и чтения настроек
         SharedPreferences sharedPref = getSharedPreferences(NameSharedPreference, MODE_PRIVATE);
         //Прочитать тему, если настройка не найдена - взять по умолчанию
@@ -108,9 +105,9 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     }
 
 
-    private int codeStyleToStyleId(int codeStyle){
+    private int codeStyleToStyleId(int codeStyle) {
 
-        switch(codeStyle){
+        switch (codeStyle) {
             case AppThemeDarkCodeStyle:
                 return R.style.AppThemeDark;
             default:
@@ -119,22 +116,8 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void showDisplay() {
-        if (operations.getOperationDisplay()!=null) {
+        if (operations.getOperationDisplay() != null) {
             numbersText.setText(operations.getOperationDisplay());
         }
     }
@@ -160,7 +143,7 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
         Button buttonMplus = findViewById(R.id.mPlus);
         Button buttonDelete = findViewById(R.id.delete);
         numbersText = findViewById(R.id.forNumbers);
-        Typeface hw = Typeface.createFromAsset(getAssets(),"ttf/lcchalk_.ttf");
+        Typeface hw = Typeface.createFromAsset(getAssets(), "ttf/lcchalk_.ttf");
         numbersText.setTypeface(hw);
 
 
