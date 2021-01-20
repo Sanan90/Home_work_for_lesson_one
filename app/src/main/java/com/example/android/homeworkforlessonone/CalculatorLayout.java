@@ -24,22 +24,21 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     private Operations operations;
     private final static String TAG = "[lifeActivity]";
     private final static String keyOperations = "Operations";
+    private int checkread;
 
 
     private static final String NameSharedPreference = "LOGIN";
 
     // Имя параметра в настройках
     private static final String AppTheme = "APP_THEME";
-
-    private static final int MyCoolCodeStyle = 0;
-    private static final int AppThemeDarkCodeStyle = 3;
+    private static final int buttonStyls = 1;
+    private static final int buttomStyls2 = 2;
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(getAppTheme(R.style.MyCoolStyle));
+        setTheme(getAppTheme(R.style.buttonStyls));
         setContentView(R.layout.activity_calculator_layout);
         initThemeChooser();
 
@@ -52,28 +51,28 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
 
     private void initThemeChooser() {
         initRadioButton(findViewById(R.id.theme2),
-                MyCoolCodeStyle);
+                buttomStyls2);
         initRadioButton(findViewById(R.id.theme1),
-                AppThemeDarkCodeStyle);
+                buttonStyls);
     }
-
 
     private void initRadioButton(View button, final int codeStyle) {
 
-        CheckBox checkBox1 = findViewById(R.id.theme1);
-        CheckBox checkBox2 = findViewById(R.id.theme2);
+        asd(checkread);
 
-        if (codeStyle == 3) {
-            checkBox1.setChecked(true);
-            checkBox2.setChecked(false);
-        } else if (codeStyle == 0) {
-            checkBox2.setChecked(true);
-            checkBox1.setChecked(false);
-        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CheckBox checkBox1 = findViewById(R.id.theme1);
+                CheckBox checkBox2 = findViewById(R.id.theme2);
+                if (codeStyle == buttonStyls) {
+                    checkBox1.setChecked(true);
+                    checkBox2.setChecked(false);
+                } else {
+                    checkBox1.setChecked(false);
+                    checkBox2.setChecked(true);
+                }
                 // сохраним настройки
                 setAppTheme(codeStyle);
                 // пересоздадим активити, чтобы тема применилась
@@ -108,10 +107,25 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     private int codeStyleToStyleId(int codeStyle) {
 
         switch (codeStyle) {
-            case AppThemeDarkCodeStyle:
-                return R.style.AppThemeDark;
+
+            case buttomStyls2:
+                checkread = 2;
+                return R.style.buttonStyls2;
             default:
-                return R.style.MyCoolStyle;
+                checkread = 1;
+                return R.style.buttonStyls;
+        }
+    }
+
+
+    private void asd(int a) {
+        CheckBox checkBox1 = findViewById(R.id.theme1);
+        CheckBox checkBox2 = findViewById(R.id.theme2);
+
+        if (a == 2) {
+            checkBox2.setChecked(true);
+        } else {
+            checkBox1.setChecked(true);
         }
     }
 
