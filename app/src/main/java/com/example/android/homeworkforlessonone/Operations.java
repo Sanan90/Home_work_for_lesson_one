@@ -22,7 +22,6 @@ class Operations implements Serializable {
     }
 
 
-
     public void setOperationDisplay(String operationDisplay) {
         this.operationDisplay = operationDisplay;
     }
@@ -130,7 +129,6 @@ class Operations implements Serializable {
             return;
         }
     }
-
 
     public void display(Double a) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -327,7 +325,6 @@ class Operations implements Serializable {
     public void mPlus() {
 
     }
-
 
 
 //    public void rounding(String numm) {
