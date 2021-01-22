@@ -2,19 +2,15 @@ package com.example.android.homeworkforlessonone;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import com.google.android.material.radiobutton.MaterialRadioButton;
 
 public class CalculatorLayout extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,6 +21,7 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     private final static String TAG = "[lifeActivity]";
     private final static String keyOperations = "Operations";
     private int checkread;
+    Setting_activity cheking;
 
 
     private static final String NameSharedPreference = "LOGIN";
@@ -156,9 +153,11 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
         Button buttonC = findViewById(R.id.c);
         Button buttonMplus = findViewById(R.id.mPlus);
         Button buttonDelete = findViewById(R.id.delete);
+        Button buttonSettings = findViewById(R.id.settingsButton);
         numbersText = findViewById(R.id.forNumbers);
         Typeface hw = Typeface.createFromAsset(getAssets(), "ttf/lcchalk_.ttf");
         numbersText.setTypeface(hw);
+
 
 
         button1.setOnClickListener(this);
@@ -180,6 +179,7 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
         buttonC.setOnClickListener(this);
         buttonEqual.setOnClickListener(this);
         buttonMplus.setOnClickListener(this);
+        buttonSettings.setOnClickListener(this);
     }
 
     @Override
@@ -297,6 +297,12 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
                 numbersText.setText(operations.getOperationDisplay());
                 operations.setOperationDisplay(numbersText.getText().toString());
                 break;
+
+            case R.id.settingsButton:
+                Intent settings = new Intent(this, Setting_activity.class);
+                startActivity(settings);
+                recreate();
+                break;
         }
     }
 
@@ -304,16 +310,19 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onStart() {
         super.onStart();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
     }
 
     @Override
@@ -324,6 +333,7 @@ public class CalculatorLayout extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onRestart() {
         super.onRestart();
+        recreate();
     }
 
     @Override
